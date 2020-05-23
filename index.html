@@ -18,7 +18,7 @@
 		<div id="content">
 			<div class="left">
 				<p>Note : ...</p>
-				<p>❤️ : ...</p>
+				<p>❤️Love : ...</p>
 				<div id="carrousel">
 					<button id="left"></button>
 					<figure>
@@ -33,20 +33,29 @@
 				<ul type = "circle">
 					<li>Skills</li>
 					<ul id="skills">
-				      <li>Sciences : ⚫⚫⚫⚫⚫</li>
+				      <li>Sciences : ⚫⚫⚫⚫⚪</li>
 				      <li>Programmation : ⚫⚫⚫⚪⚪</li>
 				      <li>Arts : ⚫⚪⚪⚪⚪</li>
-				      <li>Communication : ⚫⚪⚪⚪⚪</li>
+				      <li>Communication : ⚫⚫⚪⚪⚪</li>
 				    </ul>
 				</ul>
 
+				<form id=formPlayer>
+				<input id="hiddenType" name="hiddenType" type="hidden" value="Science">
+				<div id="nameInput">
+					<label for="name">Name :</label>
+					<input type="text" id="name" name="name" required>
+				</div>
 				<button>
 					Valider
 				</button>
+				</form>
 			</div>
 		</div>
 	</section>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="js/moves.js"></script>
+	<script src="js/global.js"></script>
+
 </body>
 </html>
