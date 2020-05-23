@@ -1,3 +1,5 @@
+// Using https://developer.mozilla.org/fr/docs/Web/API/Web_Storage_API for data
+
 var namePlayer, typeIMAC;
 var note=0, love=0;
 var skillArt=0, skillProg=0, skillScience=0, skillComm=0;
@@ -39,9 +41,9 @@ function initSkills(typeSelected){
     }
 }
 
-    function initName(inputName) {
-        namePlayer = inputName;
-    }
+function initName(inputName) {
+    namePlayer = inputName;
+}
 
 
 /***************************************
@@ -49,23 +51,23 @@ function initSkills(typeSelected){
 ****************************************/
 
 
-    function setNote(bonus){
+function setNote(bonus){
         if (bonus+note > 20){
-            note = 20;
+        note = 20;
         } 
         note += bonus;
     }
 
-    function setLove(bonus){ // Can be negative
-        love += bonus;
-    }
+function setLove(bonus){ // Can be negative
+    love += bonus;
+}
 
-    function setSkillScience(bonus){
-        if (bonus+skillScience >5){
-            skillScience = 5;
-        }
-        else skillScience +=bonus;
+function setSkillScience(bonus){
+    if (bonus+skillScience >5){
+        skillScience = 5;
     }
+    else skillScience +=bonus;
+}
     
 
 /***************************************
@@ -82,6 +84,20 @@ function getNote() {
 
 function getLove() { // Can be a malus
     return love;
+}
+
+function getType(){
+    if (typeIMAC = "Science"){
+        return "Scientifique";
+    }
+    else if (typeIMAC = "Art") {
+        return "Artistique";
+    }
+    else if (typeIMAC = "Comm") {
+        return "Communiquant";
+    }
+    else return "Polyvalent"
+
 }
 
 function getSkillScience() {

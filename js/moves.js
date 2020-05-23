@@ -57,4 +57,17 @@ $(function() {
 		}
 	};
 
+
+
+/***************************************
+********** ENVOYER FORMULAIRE **********
+****************************************/
+	$('#validIMAC').on('click', function (e) {
+		e.preventDefault(); 
+		
+		initSkills($('#hiddenType').val());
+		initName($('#name').val());
+		window.location = 'page2.html';
+	});
+
 });
