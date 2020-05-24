@@ -2,20 +2,8 @@ $(function () {
 
 
 /***************************************
-************** INIT HEADER *************
-****************************************/
-
-$('#dataPlayer h4').html(getName());
-console.log(getName());
-$('#dataPlayer h5').html('IMAC '+getType());
-$('#scorePlayer li:nth-child(1)').html('Note : '+getNote()+'/20');
-$('#scorePlayer li:nth-child(2)').html('❤️Love : '+getLove());
-
-
-/***************************************
 *********** SPECIFIC FUNCTIONS**********
 ****************************************/
-
 
 var img = document.querySelector('img');
 	img.addEventListener('click', onClick, false);

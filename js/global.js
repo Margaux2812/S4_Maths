@@ -1,48 +1,134 @@
 // Using https://developer.mozilla.org/fr/docs/Web/API/Web_Storage_API for data
 
-var namePlayer, typeIMAC;
-var note=0, love=0;
-var skillArt=0, skillProg=0, skillScience=0, skillComm=0;
+
+/***************************************
+************ INFOS VARIABLES ***********
+****************************************/
+/*
+
+[Comment utiliser sessionStorage]
+
+Marche comme des variables classiques 
+|| x = sessionStorage.nomClé
+|| sessionStorage.nomClé = 5
+
+_______________________________________
+
+[Accéder à NOS variables]
+
+sessionStorage.namePlayer => Nom
+sessionStorage.typeIMAC => Type d'IMAC
+
+sessionStorage.love => Score love en %
+sessionStorage.note => Note /20
+
+sessionStorage.skillScience => Skill Science /5
+sessionStorage.skillProg  => Skill Prog /5
+sessionStorage.skillArt  => Skill Art /5
+sessionStorage.skillComm  => Skill Comm /5
+
+________________________________________
+*/
 
 
+/***************************************
+********* INIT HTML PLAYERDATA *********
+****************************************/
+
+// Visible à partir de la page2
+
+$('.dataPlayer h4').html(getName());
+$('.dataPlayer h5').html('IMAC ' + getType());
+$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/20');
+$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
 
 /***************************************
 ************ FONCTIONS INIT ************
 ****************************************/
 
-function initSkills(typeSelected){
+function initPlayer(typeSelected, inputName){  //Modification des variables via sessionStorage.nomVar
     if(typeSelected == "Science"){
-        skillScience =4;
-        skillProg =4;
-        skillArt =1;
-        skillComm=1;
-        typeIMAC = "Science";
+        sessionStorage.skillScience =4; 
+        sessionStorage.skillProg =4;
+        sessionStorage.skillArt =1;
+        sessionStorage.skillComm=1;
+        sessionStorage.typeIMAC = "Science";
     }
     else if (typeSelected == "Art") {
-        skillScience =1;
-        skillProg =2;
-        skillArt =5;
-        skillComm =2;
-        typeIMAC = "Art";
+        sessionStorage.skillScience =1;
+        sessionStorage.skillProg =2;
+        sessionStorage.skillArt =5;
+        sessionStorage.skillComm =2;
+        sessionStorage.typeIMAC = "Art";
     }
     else if (typeSelected == "Comm") {
-        skillScience =1;
-        skillProg =1;
-        skillArt =3;
-        skillComm =5;
-        typeIMAC = "Comm";
+        sessionStorage.skillScience =1;
+        sessionStorage.skillProg =1;
+        sessionStorage.skillArt =3;
+        sessionStorage.skillComm =5;
+        sessionStorage.typeIMAC = "Comm";
     }
     else { //Mixte
-        skillScience =2;
-        skillProg =3;
-        skillArt =2;
-        skillComm =3;
-        typeIMAC = "Mixte"
+        sessionStorage.skillScience =2;
+        sessionStorage.skillProg =3;
+        sessionStorage.skillArt =2;
+        sessionStorage.skillComm =3;
+        sessionStorage.typeIMAC = "Mixte"
     }
+
+    // Init love & Note
+    sessionStorage.note = 0
+    sessionStorage.love = 0
+
+    // InitName
+    sessionStorage.namePlayer = inputName;
+}
+ 
+
+/***************************************
+************ FONCTIONS GET *************
+****************************************/
+
+function getName() { 
+    return sessionStorage.namePlayer;
 }
 
-function initName(inputName) {
-    namePlayer = inputName;
+function getNote() { // Doit retourner un chiffre
+    return parseInt(sessionStorage.note);
+}
+
+function getLove() { // Doit retourner un chiffre
+    return parseInt(sessionStorage.love);
+}
+
+function getType(){
+    if (sessionStorage.typeIMAC = "Science"){
+        return "Scientifique";
+    }
+    else if (sessionStorage.typeIMAC = "Art") {
+        return "Artistique";
+    }
+    else if (sessionStorage.typeIMAC = "Comm") {
+        return "Communiquant";
+    }
+    else return "Polyvalent"
+
+}
+
+function getSkillScience() { // Doit retourner un chiffre
+    return parseInt(sessionStorage.skillScience);
+}
+
+function getSkillProg() { // Doit retourner un chiffre
+    return parseInt(sessionStorage.skillProg);
+}
+
+function getSkillArt() { // Doit retourner un chiffre
+    return parseInt(sessionStorage.skillArt);
+}
+
+function getSkillComm() { // Doit retourner un chiffre
+    return parseInt(sessionStorage.skillComm);
 }
 
 
@@ -51,67 +137,23 @@ function initName(inputName) {
 ****************************************/
 
 
-function setNote(bonus){
-        if (bonus+note > 20){
-        note = 20;
-        } 
-        note += bonus;
+function setNote(bonus) {
+    if (bonus + getNote() > 20) {
+        sessionStorage.note = 20;
     }
-
-function setLove(bonus){ // Can be negative
-    love += bonus;
+    else sessionStorage.note = getNote() + bonus;
 }
 
-function setSkillScience(bonus){
-    if (bonus+skillScience >5){
-        skillScience = 5;
+function setLove(bonus) { // Can be negative
+    if (bonus + getLove() > 100) {
+        sessionStorage.love = 100;
     }
-    else skillScience +=bonus;
-}
-    
-
-/***************************************
-************ FONCTIONS GET *************
-****************************************/
-
-function getName() {
-    return namePlayer;
+    else sessionStorage.love = getLove() + bonus;
 }
 
-function getNote() {
-   return note;
-}
-
-function getLove() { // Can be a malus
-    return love;
-}
-
-function getType(){
-    if (typeIMAC = "Science"){
-        return "Scientifique";
+function setSkillScience(bonus) {
+    if (bonus + getSkillScience() > 5) {
+        sessionStorage.skillScience = 5;
     }
-    else if (typeIMAC = "Art") {
-        return "Artistique";
-    }
-    else if (typeIMAC = "Comm") {
-        return "Communiquant";
-    }
-    else return "Polyvalent"
-
-}
-
-function getSkillScience() {
-   return skillScience;
-}
-
-function getSkillProg() {
-    return skillProg;
-}
-
-function getSkillArt() {
-    return skillArt;
-}
-
-function getSkillComm() {
-    return skillComm;
+    else sessionStorage.skillScience = getSkillScience()+bonus;
 }
