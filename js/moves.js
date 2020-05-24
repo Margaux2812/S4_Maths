@@ -20,7 +20,7 @@ $(function() {
 				$('#skills li:nth-child(1)').html('Sciences : ⚫⚫⚫⚫⚪');
 				$('#skills li:nth-child(2)').html('Programmation : ⚫⚫⚫⚫⚪');
 				$('#skills li:nth-child(3)').html('Arts : ⚫⚪⚪⚪⚪');
-				$('#skills li:nth-child(4)').html('Communication : ⚫⚪⚪⚪⚪');
+				$('#skills li:nth-child(4)').html('Survie : ⚫⚪⚪⚪⚪');
 				$('#hiddenType').val('Science');
 				break;
 			case 1: //Art
@@ -29,18 +29,18 @@ $(function() {
 				$('#skills li:nth-child(1)').html('Sciences : ⚫⚪⚪⚪⚪');
 				$('#skills li:nth-child(2)').html('Programmation : ⚫⚫⚪⚪⚪');
 				$('#skills li:nth-child(3)').html('Arts : ⚫⚫⚫⚫⚫');
-				$('#skills li:nth-child(4)').html('Communication : ⚫⚫⚪⚪⚪');
+				$('#skills li:nth-child(4)').html('Survie : ⚫⚫⚪⚪⚪');
 				$('#hiddenType').val('Art');
 
 				break;
-			case 2: //Communication
-				$('.right h4').html('Type : Communication');
+			case 2: //Survie
+				$('.right h4').html('Type : Survie');
 				$('#carrousel img').attr("src","img/IMAC_Bullshit.png");
 				$('#skills li:nth-child(1)').html('Sciences : ⚫⚪⚪⚪⚪');
 				$('#skills li:nth-child(2)').html('Programmation : ⚫⚪⚪⚪⚪');
 				$('#skills li:nth-child(3)').html('Arts : ⚫⚫⚫⚪⚪');
-				$('#skills li:nth-child(4)').html('Communication : ⚫⚫⚫⚫⚫');
-				$('#hiddenType').val('Comm');
+				$('#skills li:nth-child(4)').html('Survie : ⚫⚫⚫⚫⚫');
+				$('#hiddenType').val('Survie');
 
 				break;
 			case 3: //Polyvalent
@@ -49,7 +49,7 @@ $(function() {
 				$('#skills li:nth-child(1)').html('Sciences : ⚫⚫⚪⚪⚪');
 				$('#skills li:nth-child(2)').html('Programmation : ⚫⚫⚫⚪⚪');
 				$('#skills li:nth-child(3)').html('Arts : ⚫⚫⚪⚪⚪');
-				$('#skills li:nth-child(4)').html('Communication : ⚫⚫⚫⚪⚪');
+				$('#skills li:nth-child(4)').html('Survie : ⚫⚫⚫⚪⚪');
 				$('#hiddenType').val('Mixte');
 
 				break;

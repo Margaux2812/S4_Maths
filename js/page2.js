@@ -1,10 +1,5 @@
 $(function () {
 
-
-/***************************************
-*********** SPECIFIC FUNCTIONS**********
-****************************************/
-
 var img = document.querySelector('img');
 	img.addEventListener('click', onClick, false);
 
@@ -16,7 +11,7 @@ var img = document.querySelector('img');
 		2. En fonction de ça : Calculer de cb on doit tourner la roue 
 			+ Ajouter X degres aléatoires (mais doit toujours tomber sur le bon partiel)
 		3. Random sur la note en fonction du typeIMAC et du partiel (Choix entre 4 lois proportionnelles ? voir drive)
-		4. Afficher résultat (alert), on click -> Next
+		4. Alert qui affiche le résultat, la nouvelle note, et un bouton : onclick -> S2
 
 		*/
 		
