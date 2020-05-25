@@ -102,16 +102,31 @@ function getLove() { // Doit retourner un chiffre
 }
 
 function getType(){
-    if (sessionStorage.typeIMAC = "Science"){
+    if (sessionStorage.typeIMAC == "Science"){
         return "Scientifique";
     }
-    else if (sessionStorage.typeIMAC = "Art") {
+    else if (sessionStorage.typeIMAC == "Art") {
         return "Artistique";
     }
-    else if (sessionStorage.typeIMAC = "Survie") {
+    else if (sessionStorage.typeIMAC == "Survie") {
         return "Survieuniquant";
     }
     else return "Polyvalent"
+
+}
+
+/*Avec des nombres*/
+function getTypeInt(){
+    if (sessionStorage.typeIMAC == "Science"){
+        return 1;
+    }
+    else if (sessionStorage.typeIMAC == "Art") {
+        return 2;
+    }
+    else if (sessionStorage.typeIMAC == "Survie") {
+        return 3;
+    }
+    else return 4;
 
 }
 
