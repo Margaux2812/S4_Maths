@@ -1,18 +1,16 @@
-var matiere = {
+window.matiere = {
   HDA: 1,
   TECH: 2,
   SIGNAL: 3,
   PROG: 4
-}
+};
 
-var type = {
+window.type = {
   SCIENCE: 1,
   ART: 2,
   SURVIE: 3,
   POLYVALENT: 4
-}
-
-console.log(getType());
+};
 
 $(function () {
 
@@ -33,9 +31,9 @@ var img = document.querySelector('img');
 
 	    this.removeAttribute('style');
 	    
-	    var deg = mathFunction();
+	    const deg = mathFunction();
 	    
-	    var css = '-webkit-transform: rotate(' + deg + 'deg);';
+	    let css = '-webkit-transform: rotate(' + deg + 'deg);';
 	    
 	    this.setAttribute(
 	        'style', css
@@ -63,28 +61,31 @@ var img = document.querySelector('img');
 	}
 
 	function updateNotes(type, matiere){
+		let note;
 		switch(matiere){
-			case matiere.SIGNAL : setNote(getSignalResult(matiere));
+			case window.matiere.SIGNAL : note = getSignalResult(type);
 			break;
-			case matiere.PROG : setNote(getProgResult(matiere));
+			case window.matiere.PROG : note = getProgResult(type);
 			break;
-			case matiere.HDA : setNote(getHDAResult(matiere));
+			case window.matiere.HDA : note = getHDAResult(type);
 			break;
-			case matiere.TECH : setNote(getTechResult(matiere));
+			case window.matiere.TECH : note = getTechResult(type);
 			break;
-			default: setNote(0); break;
+			default: note = 0; break;
 		}
+
+		setNote(note);
 	}
 
 	function getSignalResult(type){
 		switch(type){
-			case type.ART: return getInRange(2, 5);
+			case window.type.ART: return getInRange(2, 5);
 			break;
-			case type.SCIENCE: return getInRange(7, 10);
+			case window.type.SCIENCE: return getInRange(7, 10);
 			break;
-			case type.SURVIE: return getInRange(0, 5);
+			case window.type.SURVIE: return getInRange(0, 5);
 			break;
-			case type.POLYVALENT: return getInRange(4, 7);
+			case window.type.POLYVALENT: return getInRange(4, 7);
 			break;
 			default: break;
 		}
@@ -92,13 +93,13 @@ var img = document.querySelector('img');
 
 	function getProgResult(type){
 		switch(type){
-			case type.ART: return getInRange(0, 5);
+			case window.type.ART: return getInRange(0, 5);
 			break;
-			case type.SCIENCE: return getInRange(4, 7);
+			case window.type.SCIENCE: return getInRange(4, 7);
 			break;
-			case type.SURVIE: return getInRange(2, 5);
+			case window.type.SURVIE: return getInRange(2, 5);
 			break;
-			case type.POLYVALENT: return getInRange(7, 10);
+			case window.type.POLYVALENT: return getInRange(7, 10);
 			break;
 			default: break;
 		}
@@ -106,13 +107,13 @@ var img = document.querySelector('img');
 
 	function getHDAResult(type){
 		switch(type){
-			case type.ART: return getInRange(7, 10);
+			case window.type.ART: return getInRange(7, 10);
 			break;
-			case type.SCIENCE: return getInRange(0, 5);
+			case window.type.SCIENCE: return getInRange(0, 5);
 			break;
-			case type.SURVIE: return getInRange(4, 7);
+			case window.type.SURVIE: return getInRange(4, 7);
 			break;
-			case type.POLYVALENT: return getInRange(2, 5);
+			case window.type.POLYVALENT: return getInRange(2, 5);
 			break;
 			default: break;
 		}
@@ -120,20 +121,23 @@ var img = document.querySelector('img');
 
 	function getTechResult(type){
 		switch(type){
-			case type.ART: return getInRange(4, 7);
+			case window.type.ART: return getInRange(4, 7);
 			break;
-			case type.SCIENCE: return getInRange(2, 5);
+			case window.type.SCIENCE: return getInRange(2, 5);
 			break;
-			case type.SURVIE: return getInRange(7, 10);
+			case window.type.SURVIE: return getInRange(7, 10);
 			break;
-			case type.POLYVALENT: return getInRange(0, 5);
+			case window.type.POLYVALENT: return getInRange(0, 5);
 			break;
 			default: break;
 		}
 	}
 
-	function getInRange(min, max){
 
+	/*Algorithme du rejet avec une fonction gaussienne centrée
+	au niveau de la moyenne du min et max voulu*/
+	function getInRange(min, max){
+		return algoRejet( (max+min)/2 );
 	}
 
 });

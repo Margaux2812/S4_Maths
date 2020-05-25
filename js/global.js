@@ -153,8 +153,8 @@ function getSkillSurvie() { // Doit retourner un chiffre
 
 
 function setNote(bonus) {
-    if (bonus + getNote() > 20) {
-        sessionStorage.note = 20;
+    if (bonus + getNote() > 10) {
+        sessionStorage.note = 10;
     }
     else sessionStorage.note = getNote() + bonus;
 }
