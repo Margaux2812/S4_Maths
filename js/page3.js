@@ -109,6 +109,9 @@ Perdre : 0/10
 			setSkillScience(2);
 			alert("Tu as gagné 2 points de skill en science en plus grâce à cette action !");
 		}
+		else{
+			alert("Oups, ton choix n'a pas vraiment amélioré tes compétences !")
+		}
 	}
 
 	function takeTest(){
