@@ -35,12 +35,16 @@ ________________________________________
 ********* INIT HTML PLAYERDATA *********
 ****************************************/
 
-// Visible à partir de la page2
-
-$('.dataPlayer h4').html(getName());
-$('.dataPlayer h5').html('IMAC ' + getType());
-$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/20');
-$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
+	$('.dataPlayer h4').html(getName());
+	$('.dataPlayer h5').html('IMAC ' + getType());
+	$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/20');
+	$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
+    if(typeof getName() !== 'undefined'){
+        $('#skills li:nth-child(1)').html('Sciences : '+ '⚫'.repeat(getSkillScience()) + '⚪'.repeat(5-getSkillScience()));
+        $('#skills li:nth-child(2)').html('Programmation : '+ '⚫'.repeat(getSkillProg()) + '⚪'.repeat(5-getSkillProg()));
+        $('#skills li:nth-child(3)').html('Arts : '+ '⚫'.repeat(getSkillArt()) + '⚪'.repeat(5-getSkillArt()));
+        $('#skills li:nth-child(4)').html('Survie : '+ '⚫'.repeat(getSkillSurvie()) + '⚪'.repeat(5-getSkillSurvie()));
+    }
 
 /***************************************
 ************ FONCTIONS INIT ************
@@ -102,17 +106,45 @@ function getLove() { // Doit retourner un chiffre
 }
 
 function getType(){
-    if (sessionStorage.typeIMAC = "Science"){
+    if (sessionStorage.typeIMAC == "Science"){
         return "Scientifique";
     }
-    else if (sessionStorage.typeIMAC = "Art") {
+    else if (sessionStorage.typeIMAC == "Art") {
         return "Artistique";
     }
-    else if (sessionStorage.typeIMAC = "Survie") {
+    else if (sessionStorage.typeIMAC == "Survie") {
         return "Survieuniquant";
     }
     else return "Polyvalent"
 
+}
+
+/*Avec des nombres*/
+function getTypeInt(){
+    if (sessionStorage.typeIMAC == "Science"){
+        return 1;
+    }
+    else if (sessionStorage.typeIMAC == "Art") {
+        return 2;
+    }
+    else if (sessionStorage.typeIMAC == "Survie") {
+        return 3;
+    }
+    else return 4;
+}
+
+function getMatiere(int){
+	switch(int){
+		case 1 : return "Histoire de l'Art"; 
+		break;
+	    case 2 : return "Technique de l'image"; 
+	    break;
+	    case 3 : return "Signal"; 
+	    break;
+	    case 4 : return "Programmation"; 
+	    break;
+	    default : break;
+	}
 }
 
 function getSkillScience() { // Doit retourner un chiffre
