@@ -65,8 +65,12 @@ $(function() {
 	$('#validIMAC').on('click', function (e) {
 		e.preventDefault(); 
 		
-		initPlayer($('#hiddenType').val(), $('#name').val());
-		window.location = 'page2.html';
+		if( $('#name').val() != ''){
+			initPlayer($('#hiddenType').val(), $('#name').val());
+			window.location = 'page2.html';
+		}else{
+			alert("Choisissez un prénom");
+		}
 	});
 
 });
