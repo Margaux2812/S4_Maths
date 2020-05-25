@@ -151,18 +151,11 @@ var img = document.querySelector('img');
 	************************************/
 
 	function updateDisplay(matiere){
-		$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/10');
-		$('.dataPlayer p').html('Il semblerait que tu aies eu ' + getNote() + '/10 à ton partiel de ' + getMatiere(matiere));
+		if (confirm('Il semblerait que tu aies eu ' + getNote() + '/10 à ton partiel de ' + getMatiere(matiere))) {
+			window.location = 'page3.html';
+		  } else {
+			window.location = 'index.html';
+		  }
 	}
-
-	/***************************************
-	********** ENVOYER FORMULAIRE **********
-	****************************************/
-	$('#validIMAC').on('click', function (e) {
-		e.preventDefault(); 
-
-		window.location = 'page3.html';
-	});
-
 
 });
