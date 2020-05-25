@@ -252,4 +252,11 @@ $(function () {
 // draw();
 // playAgain();
 
+
+    $('#buttonS3').on('click', function (e) {
+        e.preventDefault();
+            window.location = 'page5.html';
+    });
+
+
 });

@@ -17,4 +17,10 @@ $(function () {
     1. Alert qui affiche qu'on a pas assez de love et qu'on ne va pas au gala + button : onclick -> Classement
     */
 
+
+    $('#buttonGala').on('click', function (e) {
+        e.preventDefault();
+        window.location = 'page6.html';
+    });
+
 });
