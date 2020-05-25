@@ -68,6 +68,14 @@ section h3{
 	height: 80%;
 }
 
+#canvas {
+			background: #e1e1ea;
+			display: block;
+			margin: auto;
+			height : 500px;
+			width : 1200px;
+		}
+
 /*LEFT*/
 
 .left, .right{
