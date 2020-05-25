@@ -12,7 +12,14 @@ window.type = {
   POLYVALENT: 4
 };
 
+window.hasTurned = false;
+
 $(function () {
+
+	$('.dataPlayer h4').html(getName());
+	$('.dataPlayer h5').html('IMAC ' + getType());
+	$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/10');
+	$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
 
 var img = document.querySelector('img');
 	img.addEventListener('click', onClick, false);
@@ -29,25 +36,27 @@ var img = document.querySelector('img');
 
 		*/
 
-	    this.removeAttribute('style');
-	    
-	    const deg = mathFunction();
-	    
-	    let css = '-webkit-transform: rotate(' + deg + 'deg);';
-	    
-	    this.setAttribute(
-	        'style', css
-	    );
+		if(!window.hasTurned){
+			window.hasTurned = true;
+		    this.removeAttribute('style');
+		    
+		    const deg = mathFunction();
+		    
+		    let css = '-webkit-transform: rotate(' + deg + 'deg);';
+		    
+		    this.setAttribute(
+		        'style', css
+		    );
 
-	    updateNotes(getTypeInt(), getMatiere(deg));
-	    
+		    update(getTypeInt(), getMatiereFromDeg(deg));
+	    }
 	}
 
 	function mathFunction(){
 		return 500 + Math.round(Math.random() * 500); // à déplacer dans maths.js
 	}
 
-	function getMatiere(deg){
+	function getMatiereFromDeg(deg){
 		deg  = deg%90;
 		if(deg>=0 && deg <= 22.5){
 			return matiere.HDA;
@@ -60,7 +69,7 @@ var img = document.querySelector('img');
 		}
 	}
 
-	function updateNotes(type, matiere){
+	function update(type, matiere){
 		let note;
 		switch(matiere){
 			case window.matiere.SIGNAL : note = getSignalResult(type);
@@ -74,7 +83,9 @@ var img = document.querySelector('img');
 			default: note = 0; break;
 		}
 
-		setNote(note);
+		setNote(Math.trunc(note*10)/10);
+
+		setTimeout(() => {  updateDisplay(matiere); }, 2000);
 	}
 
 	function getSignalResult(type){
@@ -139,5 +150,24 @@ var img = document.querySelector('img');
 	function getInRange(min, max){
 		return algoRejet( (max+min)/2 );
 	}
+
+	/************************************
+	*************AFFICHAGE***************
+	************************************/
+
+	function updateDisplay(matiere){
+		$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/10');
+		$('.dataPlayer p').html('Il semblerait que tu aies eu ' + getNote() + '/10 à ton partiel de ' + getMatiere(matiere));
+	}
+
+	/***************************************
+	********** ENVOYER FORMULAIRE **********
+	****************************************/
+	$('#validIMAC').on('click', function (e) {
+		e.preventDefault(); 
+
+		window.location = 'page3.html';
+	});
+
 
 });
