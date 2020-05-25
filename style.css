@@ -76,6 +76,8 @@ section h3{
 			width : 1200px;
 		}
 
+		
+
 /*LEFT*/
 
 .left, .right{
@@ -115,9 +117,15 @@ section h3{
 }
 
 #roulette {
-	display: inline-block;
-    height: 100%;
-    -webkit-transition: -webkit-transform 2s ease-out;
+	position : absolute;
+    /* height: 100%; */
+	-webkit-transition: -webkit-transform 2s ease-out;
+	z-index:0;
+}
+
+#rouletteFleche{
+	position: absolute;
+	z-index:1;
 }
 
 #content>ul{

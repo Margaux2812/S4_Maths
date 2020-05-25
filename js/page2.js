@@ -16,8 +16,8 @@ window.hasTurned = false;
 
 $(function () {
 
-var img = document.querySelector('img');
-	img.addEventListener('click', onClick, false);
+var rouletteImg = document.getElementById('roulette');
+	rouletteImg.addEventListener('click', onClick, false);
 
 	function onClick() {
 
