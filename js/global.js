@@ -113,7 +113,7 @@ function getType(){
         return "Artistique";
     }
     else if (sessionStorage.typeIMAC == "Survie") {
-        return "Survieuniquant";
+        return "Survivant";
     }
     else return "Polyvalent"
 
