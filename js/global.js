@@ -35,13 +35,6 @@ ________________________________________
 ********* INIT HTML PLAYERDATA *********
 ****************************************/
 
-// Visible à partir de la page2
-
-$('.dataPlayer h4').html(getName());
-$('.dataPlayer h5').html('IMAC ' + getType());
-$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/20');
-$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
-
 /***************************************
 ************ FONCTIONS INIT ************
 ****************************************/
@@ -127,7 +120,20 @@ function getTypeInt(){
         return 3;
     }
     else return 4;
+}
 
+function getMatiere(int){
+	switch(int){
+		case 1 : return "Histoire de l'Art"; 
+		break;
+	    case 2 : return "Technique de l'image"; 
+	    break;
+	    case 3 : return "Signal"; 
+	    break;
+	    case 4 : return "Programmation"; 
+	    break;
+	    default : break;
+	}
 }
 
 function getSkillScience() { // Doit retourner un chiffre
