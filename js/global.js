@@ -40,7 +40,6 @@ ________________________________________
 	$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/10');
 	$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
     if(typeof getName() !== 'undefined'){
-        console.log('here');
         $('#skills li:nth-child(1)').html('Sciences : '+ '⚫'.repeat(getSkillScience()) + '⚪'.repeat(5-getSkillScience()));
         $('#skills li:nth-child(2)').html('Programmation : '+ '⚫'.repeat(getSkillProg()) + '⚪'.repeat(5-getSkillProg()));
         $('#skills li:nth-child(3)').html('Arts : '+ '⚫'.repeat(getSkillArt()) + '⚪'.repeat(5-getSkillArt()));

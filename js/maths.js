@@ -9,8 +9,8 @@ function gauss(center, x){
 
 function algoRejet(centerGauss){
 	//Y peut etre compris entre 0 et 10
-	y = Math.random()*10;
-	u = Math.random();
+	let y = Math.random()*10;
+	const u = Math.random();
 	while(u > (gauss(centerGauss, y)/10)){
 		y = Math.random()*10;
 	}
@@ -18,4 +18,31 @@ function algoRejet(centerGauss){
 	/*On aura plus de chance de tomber sous la courbe aux alentours de la valeur donnée*/
 	
 	return y;
+}
+
+function bernouilli(n, p){
+	let data = new Array();
+	let lastChance= 0;
+	for(let i=1; i<6; i++){
+		data[i] = lastChance + coefBinomial(n, i)* Math.pow(p, i) * Math.pow((1-p), (n-i));
+		lastChance = data[i];
+	}
+	return data;
+}
+
+function coefBinomial(n, k){
+	return factoriel(n)/(factoriel(k)*factoriel(n-k));
+}
+
+function factoriel(n){
+	if (n<0) {
+		alert ("Veuillez Saisir Un Entier Positif ou null");
+		return "### Erreur ###";
+	}else {
+		if (n == 0) {
+			return 1;
+		}else {
+			return n * factoriel (n-1);
+		}
+	}
 }
