@@ -113,7 +113,7 @@ Perdre : 0/10
 
 	function takeTest(){
 		setNote(getNoteSignal());
-		if (confirm("Tu as eu " + getNoteSignal())) {
+		if (confirm("Tu as eu " + getNoteSignal()+"/10")) {
 			window.location = 'page4.html';
 		  } else {
 			window.location = 'index.html';
