@@ -37,7 +37,7 @@ ________________________________________
 
 	$('.dataPlayer h4').html(getName());
 	$('.dataPlayer h5').html('IMAC ' + getType());
-	$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/10');
+	$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/20');
 	$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
     if(typeof getName() !== 'undefined'){
         $('#skills li:nth-child(1)').html('Sciences : '+ '⚫'.repeat(getSkillScience()) + '⚪'.repeat(5-getSkillScience()));
@@ -170,8 +170,8 @@ function getSkillSurvie() { // Doit retourner un chiffre
 
 
 function setNote(bonus) {
-    if (bonus + getNote() > 10) {
-        sessionStorage.note = 10;
+    if (bonus + getNote() > 20) {
+        sessionStorage.note = 20;
     }
     else sessionStorage.note = getNote() + bonus;
 }

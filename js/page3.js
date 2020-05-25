@@ -112,6 +112,7 @@ Perdre : 0/10
 	}
 
 	function takeTest(){
+		setNote(getNoteSignal());
 		if (confirm("Tu as eu " + getNoteSignal())) {
 			window.location = 'page4.html';
 		  } else {
