@@ -35,6 +35,11 @@ ________________________________________
 ********* INIT HTML PLAYERDATA *********
 ****************************************/
 
+	$('.dataPlayer h4').html(getName());
+	$('.dataPlayer h5').html('IMAC ' + getType());
+	$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/10');
+	$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
+
 /***************************************
 ************ FONCTIONS INIT ************
 ****************************************/
