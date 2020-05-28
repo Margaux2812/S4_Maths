@@ -5,6 +5,18 @@ On a donc pris sigma = 2 et mu = center
 afin que notre courbe gaussienne soit un peu étalée et centrée en la valeur souhaitée*/
 function gauss(center, x){ 
 	return (20*Math.sqrt(2*Math.PI) *Math.exp(- Math.pow(x-center, 2)/8))/(2*Math.sqrt(2*Math.PI));
+	/* Plutôt ?? : 
+		var sigma = 2;
+		return (1/(sigma*Math.sqrt(2*Math.PI))) *Math.exp(- (Math.pow(x-center, 2))/(2*Math.pow(sigma,2)));
+		https://fr.wikipedia.org/wiki/Loi_normale 
+
+		*/
+}
+
+function gaussBool(center, x, a,b){
+	var sigma = 4;
+	var val =(20 * Math.sqrt(2 * Math.PI) * Math.exp(- Math.pow(x - center, 2) / 16)) / (2 * Math.sqrt(2 * Math.PI));
+	return (val >a && val<b);
 }
 
 function algoRejet(centerGauss){

@@ -243,13 +243,13 @@ $(function () {
         
 
             if (love < 50) {
-                window.alert("Terminé ! \n Tu es trop salé pour l'IMAC, ton score de love a baissé à " + love + "%.\n Conseil d'ami : Sois un peu moins... grognon.")
+                alert("Terminé ! \n Tu es trop salé pour l'IMAC, ton score de love a baissé à " + love + "%.\n Conseil d'ami : Sois un peu moins... grognon.")
             
             } else if (love == 50) {
-                window.alert("Terminé ! \n Ton score de love n'a pas bougé, tu restes à " + love + "%.\n Conseil d'ami : Essaie de faire des blagues, sur un malentendu ça peut faire rire quelqu'un.")
+                alert("Terminé ! \n Ton score de love n'a pas bougé, tu restes à " + love + "%.\n Conseil d'ami : Essaie de faire des blagues, sur un malentendu ça peut faire rire quelqu'un.")
 
             } else {
-                window.alert("Terminé ! \n Tu sais partager l'amour à l'IMAC ! Ton score de love est de " + love + "%.\n Conseil d'ami : Reste comme tu es, ça c'est IMAC !")
+                alert("Terminé ! \n Tu sais partager l'amour à l'IMAC ! Ton score de love est de " + love + "%.\n Conseil d'ami : Reste comme tu es, ça c'est IMAC !")
             }
 
             window.location = 'page5.html';

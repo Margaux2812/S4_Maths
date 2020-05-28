@@ -116,7 +116,7 @@ Perdre : 0/10
 
 	function takeTest(){
 		setNote(getNoteSignal());
-		if (confirm("Tu as eu " + getNoteSignal()+"/10")) {
+		if (confirm("Tu as eu " + getNoteSignal()+"/10 au partiel de Signal !")) {
 			window.location = 'page4.html';
 		  } else {
 			window.location = 'index.html';

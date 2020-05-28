@@ -39,8 +39,8 @@ ________________________________________
 
 	$('.dataPlayer h4').html(getName());
 	$('.dataPlayer h5').html('IMAC ' + getType());
-	$('#scorePlayer li:nth-child(1)').html('Note : ' + getNote() + '/20');
-	$('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
+    $('#scorePlayer li:nth-child(1)').html('📓 Note : ' + getNote() + '/20');
+	$('#scorePlayer li:nth-child(2)').html('❤️ Love : ' + getLove() + '%');
     if(typeof getName() !== 'undefined'){
         $('#skills li:nth-child(1)').html('Sciences : '+ '⚫'.repeat(getSkillScience()) + '⚪'.repeat(5-getSkillScience()));
         $('#skills li:nth-child(2)').html('Programmation : '+ '⚫'.repeat(getSkillProg()) + '⚪'.repeat(5-getSkillProg()));
@@ -177,7 +177,7 @@ function setNote(bonus) {
     if (bonus + getNote() > 20) {
         sessionStorage.note = 20;
     }
-    else sessionStorage.note = getNote() + bonus;
+    else sessionStorage.note = getNote()+bonus;
 }
 
 function setLove(value) { // Can be negative
