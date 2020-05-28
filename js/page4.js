@@ -5,11 +5,12 @@ $(function () {
     var lefty = false;
     var righty = false;
     var gameOver = true;
-    var love = 50;
-    var stock = 0;
-    var track = 0;
-    var badTrack = 0;
+    var love;
+    var stock;
+    var track;
+    var badTrack;
     var played = false;
+    var startTime;
     setLove(50);
     $('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
 
@@ -124,6 +125,7 @@ $(function () {
     // moves objects in play
     function playUpdate() {
 
+
         if (lefty && player.x > 0) {
             player.x -= 7;
 
@@ -152,9 +154,7 @@ $(function () {
                     stock++;
                     // Cycles through goodArc's color array
                     goodArc.state[i] = false;
-                    if (stock >= 15) {
-                        gamesOver();
-                    }
+                   
                 }
             }
             // Removes circles from array that are no longer in play
@@ -172,9 +172,6 @@ $(function () {
                 love-=5;
                 }
                 badArc.y[i] = 0;
-                if (stock >=10) {
-                    gamesOver();
-                }
             }
             // Removes circles from x and y arrays that are no longer in play
             if (badArc.y[i] + rad > canvas.height) {
@@ -184,6 +181,9 @@ $(function () {
             }
         }
 
+        if ((Date.now() - startTime) > (30*1000)) { // X secondes de jeu
+            gamesOver()
+        }
     }
 
     //signals end of game and resets x, y, and state arrays for arcs
@@ -207,6 +207,7 @@ $(function () {
         stock = 0;
         badArc.speed = 2;
         goodArc.speed = 2;
+        startTime = Date.now();
     }
     function draw() {
         contxt.clearRect(0, 0, canvas.width, canvas.height);
@@ -216,7 +217,6 @@ $(function () {
             drawLove();
             playUpdate();
             drawNew();
-
             //love
             contxt.fillStyle = "black";
             contxt.font = "20px Helvetica";
@@ -225,17 +225,17 @@ $(function () {
 
             //stock
             contxt.textAlign = "right";
-            contxt.fillText("stock: " + stock, 500, 25);
+            contxt.fillText("Time: " + parseInt((Date.now() - startTime)/1000)+"s", 500, 25);
         }
         else if (gameOver && !played){
             contxt.fillStyle = "black";
             contxt.textAlign = "center";
 
             contxt.font = "30px Helvetica";
-            contxt.fillText("Attrape les coeurs, évite le sel !  ", canvas.width / 2, 175);
+            contxt.fillText("Tu as 30 secondes pour attraper le love et éviter le sel de l'IMAC !", canvas.width / 2, 175);
 
             contxt.font = "25px Helvetica";
-            contxt.fillText("APPUIE SUR ESPACE POUR JOUER", canvas.width / 2, 300);
+            contxt.fillText("APPUIE SUR ESPACE POUR COMMENCER", canvas.width / 2, 300);
 
             contxt.font = "20px Helvetica";
             contxt.fillText("Utilise tes flèches <-  -> pour bouger ", canvas.width / 2, 475); 
