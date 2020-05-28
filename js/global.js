@@ -31,6 +31,8 @@ ________________________________________
 */
 
 
+
+
 /***************************************
 ********* INIT HTML PLAYERDATA *********
 ****************************************/
@@ -45,6 +47,7 @@ ________________________________________
         $('#skills li:nth-child(3)').html('Arts : '+ '⚫'.repeat(getSkillArt()) + '⚪'.repeat(5-getSkillArt()));
         $('#skills li:nth-child(4)').html('Survie : '+ '⚫'.repeat(getSkillSurvie()) + '⚪'.repeat(5-getSkillSurvie()));
     }
+
 
 /***************************************
 ************ FONCTIONS INIT ************
@@ -86,6 +89,7 @@ function initPlayer(typeSelected, inputName){  //Modification des variables via 
 
     // InitName
     sessionStorage.namePlayer = inputName;
+
 }
  
 
@@ -189,3 +193,4 @@ function setSkillScience(bonus) {
     }
     else sessionStorage.skillScience = getSkillScience()+bonus;
 }
+

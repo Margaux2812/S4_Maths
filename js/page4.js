@@ -45,43 +45,48 @@ $(function () {
     var playerImg = new Image();
 
         var player = {
-            size: 50,
-            x: (canvas.width - 50) / 2,
-            y: canvas.height - 50,
+            size: 100,
+            x: (canvas.width - 100) / 2,
+            y: canvas.height - 100,
             src: "./img/basket.png"
         };
 
-       
+     
+        
     // specs for balls you want to collect
+
+    var loveImg = new Image();
     var goodArc = {
         x: [],
         y: [],
-        speed: [],
-        color: "red",
+        speed: 2,
+        src : "./img/heart.png",
         state: []
     };
     var loveNum = 0;
 
     // specs for balls you want to avoid
+    
+    var saltImg = new Image();
     var badArc = {
         x: [],
         y: [],
-        speed: [],
-        color: "blue"
+        speed: 3,
+        src : "./img/salt.png"
 
     };
     var saltNum = 0;
-    var rad = 10;
+    var rad = 65;
 
     // adds value to x property of goodArc
     function drawNew() {
         var myRandom = Math.random() // RANDOM HERE
-        if (myRandom < .05) { 
+        if (myRandom < .03) { 
             goodArc.x.push(Math.random() * canvas.width); //RANDOM HERE
             goodArc.y.push(0);
             goodArc.state.push(true);
 
-        } else if (myRandom < .12){
+        } else if (myRandom < .10){
 
                 badArc.x.push(Math.random() * canvas.width);
                 badArc.y.push(0);
@@ -96,13 +101,9 @@ $(function () {
     function drawLove() {
         for (var i = 0; i < loveNum; i++) {
             if (goodArc.state[i] == true) {
-                //Keeps track of position in color array with changing loveNum size
-                var trackCol = (i + track);
-                contxt.beginPath();
-                contxt.arc(goodArc.x[i], goodArc.y[i], rad, 0, Math.PI * 2);
-                contxt.fillStyle = goodArc.color;
-                contxt.fill();
-                contxt.closePath();
+
+                loveImg.src = goodArc.src;
+                contxt.drawImage(loveImg, goodArc.x[i], goodArc.y[i], rad, rad);
             }
         }
     }
@@ -110,14 +111,8 @@ $(function () {
     // draws black ball to avoid
     function drawSalt() {
         for (var i = 0; i < saltNum; i++) {
-            //Keeps track of position in color array with changing saltNum size
-            var badCol = (i + badTrack);
-
-            contxt.beginPath();
-            contxt.arc(badArc.x[i], badArc.y[i], rad, 0, Math.PI * 2);
-            contxt.fillStyle = badArc.color;
-            contxt.fill();
-            contxt.closePath();
+            saltImg.src = badArc.src;
+            contxt.drawImage(saltImg, badArc.x[i], badArc.y[i], rad, rad);
         }
     }
     // draw player to canvas
@@ -131,19 +126,19 @@ $(function () {
 
         if (lefty && player.x > 0) {
             player.x -= 7;
-            contxt.drawImage(playerImg, player.x, player.y, player.size, player.size);
 
         }
         if (righty && player.x + player.size < canvas.width) {
             player.x += 7;
-            contxt.drawImage(playerImg, player.x, player.y, player.size, player.size);
 
         }
         for (var i = 0; i < loveNum; i++) {
             goodArc.y[i] += goodArc.speed;
+
         }
         for (var i = 0; i < saltNum; i++) {
             badArc.y[i] += badArc.speed;
+
         }
 
         // collision detection
@@ -157,7 +152,7 @@ $(function () {
                     stock++;
                     // Cycles through goodArc's color array
                     goodArc.state[i] = false;
-                    if (stock >= 10) {
+                    if (stock >= 15) {
                         gamesOver();
                     }
                 }
