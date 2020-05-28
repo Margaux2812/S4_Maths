@@ -140,11 +140,9 @@ Perdre : 0/10
 			var sentence = "Youhooou ! Tu as eu " + noteSignal * 2 + "/20 au partiel de signal ! Bravo !"
 		}
 
-		if (confirm(sentence)) {
+		alert(sentence); 
 			window.location = 'page4.html';
-		  } else {
-			window.location = 'index.html';
-		  }
+		  
 	}
 
 	function getNoteSignal(){

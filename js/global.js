@@ -173,10 +173,14 @@ function getSkillSurvie() { // Doit retourner un chiffre
 
 
 function setNote(bonus) {
-    if (bonus + getNote() > 20) {
+
+    if ((parseFloat(bonus) + parseFloat(getNote())) > 20) {
         sessionStorage.note = 20;
     }
-    else sessionStorage.note = getNote()+bonus;
+    else { 
+        sessionStorage.note = parseFloat(getNote()) + parseFloat(bonus);
+    }
+
 }
 
 function setLove(value) { // Can be negative
