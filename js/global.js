@@ -176,11 +176,11 @@ function setNote(bonus) {
     else sessionStorage.note = getNote() + bonus;
 }
 
-function setLove(bonus) { // Can be negative
-    if (bonus + getLove() > 100) {
+function setLove(value) { // Can be negative
+    if (value > 100) {
         sessionStorage.love = 100;
     }
-    else sessionStorage.love = getLove() + bonus;
+    else sessionStorage.love = value;
 }
 
 function setSkillScience(bonus) {

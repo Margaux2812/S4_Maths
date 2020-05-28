@@ -73,17 +73,17 @@ $(function () {
     // adds value to x property of goodArc
     function drawNew() {
         var myRandom = Math.random() // RANDOM HERE
-        if (myRandom < .05) { 
+        if (myRandom < .05) {
             goodArc.x.push(Math.random() * canvas.width); //RANDOM HERE
             goodArc.y.push(0);
             goodArc.state.push(true);
 
-        } else if (myRandom < .12){
+        } else if (myRandom < .12) {
 
-                badArc.x.push(Math.random() * canvas.width);
-                badArc.y.push(0);
-            }
-        
+            badArc.x.push(Math.random() * canvas.width);
+            badArc.y.push(0);
+        }
+
         loveNum = goodArc.x.length;
         saltNum = badArc.x.length;
 
@@ -147,8 +147,8 @@ $(function () {
             // Only counts collision once
             if (goodArc.state[i]) {
                 if (player.x < goodArc.x[i] + rad && player.x + 30 + rad > goodArc.x[i] && player.y < goodArc.y[i] + rad && player.y + 30 > goodArc.y[i]) {
-                    if (love <=95){
-                    love+=5;
+                    if (love <= 95) {
+                        love += 5;
                     }
                     stock++;
                     // Cycles through goodArc's color array
@@ -170,12 +170,12 @@ $(function () {
         for (var i = 0; i < saltNum; i++) {
             if (player.x < badArc.x[i] + rad && player.x + 30 + rad > badArc.x[i] && player.y < badArc.y[i] + rad && player.y + 30 > badArc.y[i]) {
                 stock++;
-                if (love>=5){
-                love-=5;
+                if (love >= 5) {
+                    love -= 5;
                 }
                 player.color = badArc.color;
                 badArc.y[i] = 0;
-                if (stock >=10) {
+                if (stock >= 10) {
                     gamesOver();
                 }
             }
@@ -197,7 +197,7 @@ $(function () {
         badArc.y = [];
         goodArc.state = [];
         gameOver = true;
-        played=true;
+        played = true;
         setLove(love);
         $('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
 
@@ -225,13 +225,13 @@ $(function () {
             contxt.fillStyle = "black";
             contxt.font = "20px Helvetica";
             contxt.textAlign = "left";
-            contxt.fillText("Love: " + love +"%", 10, 25);
+            contxt.fillText("Love: " + love + "%", 10, 25);
 
             //stock
             contxt.textAlign = "right";
             contxt.fillText("stock: " + stock, 500, 25);
         }
-        else if (gameOver && !played){
+        else if (gameOver && !played) {
             contxt.fillStyle = "black";
             contxt.textAlign = "center";
 
@@ -242,7 +242,7 @@ $(function () {
             contxt.fillText("APPUIE SUR ESPACE POUR JOUER", canvas.width / 2, 300);
 
             contxt.font = "20px Helvetica";
-            contxt.fillText("Utilise tes flèches <-  -> pour bouger ", canvas.width / 2, 475); 
+            contxt.fillText("Utilise tes flèches <-  -> pour bouger ", canvas.width / 2, 475);
         } else {
 
             contxt.fillStyle = "black";
@@ -256,13 +256,13 @@ $(function () {
             if (love < 50) {
                 contxt.fillText("Tu es trop salé pour l'IMAC, ton score de love a baissé à " + love + "%.", canvas.width / 2, 300);
                 contxt.font = "20px Helvetica";
-                contxt.fillText("Conseil d'ami : Sois un peu moins grognon... ", canvas.width / 2, 375); 
-            
+                contxt.fillText("Conseil d'ami : Sois un peu moins grognon... ", canvas.width / 2, 375);
+
             } else if (love == 50) {
                 contxt.fillText("Ton score de love n'a pas bougé, tu restes à " + love + "%.", canvas.width / 2, 300);
                 contxt.font = "20px Helvetica";
-                contxt.fillText("Conseil d'ami : Essaie de faire des blagues, sur un malentendu ça peut faire rire quelqu'un. ", canvas.width / 2, 375); 
-            
+                contxt.fillText("Conseil d'ami : Essaie de faire des blagues, sur un malentendu ça peut faire rire quelqu'un. ", canvas.width / 2, 375);
+
             } else {
                 contxt.fillText("Tu sais partager l'amour à l'IMAC ! Ton score de love est de " + love + "%.", canvas.width / 2, 300);
                 contxt.font = "20px Helvetica";
