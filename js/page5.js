@@ -1,16 +1,8 @@
 $(function () {
 
-    /*
-    Scénario : 
-    
-    [ SI ASSEZ DE LOVE (> 50% ?)]
 
-    1. Biri veut que tu lui offres des coups
-    2. (Dans boucle for ?) Selector pour voir combien tu lui en sers (min et max aléatoires ?) // Même système que pour index
-    3. Loi Gaussienne -> Plus ou moins de chance que Biri nous donne des points bonus
-    4. SI il nous en donne : Aléatoire sur le nombre de point bonus (Loi : ???)
-    5. Alert qui affiche le résultat, la nouvelle note, et un bouton : onclick -> Classement
-*/
+    $('#scorePlayer li:nth-child(1)').html('📓 Moyenne : ' + getNote() + '/20');
+
     var nbShot = 0;
 
     $("#rightShot").click(function () {
@@ -47,12 +39,11 @@ $(function () {
 
 
     if (getLove() < 50) {
-        $("#validShot").disabled;
         $('h3').html('C\'est le gala mais tu as décidé de ne pas y aller !');
         alert("Aie ! Désolé, ton score de love est tellement bas que tu as peur de ne pas t'amuser au Gala.  \n Tu décides de ne pas y aller. \nDommage ! Tu aurais pu servir un coup à boire à tes professeurs préférés !")
         window.location = 'page6.html';
 
     } else {
-        $('h3').html("Ouah ! Monsieur Biri aimerait bien boire un coup !\n Sers-le, peut-être qu\'il te révèlera les secrets de l\IMAC !");
+        $('h3').html("Ouah c'est le jour du gala \n! Monsieur Biri aimerait bien boire un coup !\n Sers-le, peut-être qu\'il te révèlera les secrets de l\IMAC !");
         }
 });

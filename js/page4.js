@@ -13,6 +13,7 @@ $(function () {
     var startTime;
     setLove(50);
     $('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
+    $('#scorePlayer li:nth-child(1)').html('📓 Moyenne : ' + getNote() + '/20');
 
 
 

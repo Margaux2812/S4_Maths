@@ -1,4 +1,5 @@
 $(function () {
+    $('#scorePlayer li:nth-child(1)').html('📓 Moyenne : ' + getNote() + '/20');
 
     /*
     Scénario : 

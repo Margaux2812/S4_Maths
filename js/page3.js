@@ -26,6 +26,10 @@ Gagner 2 fois : 4/10
 Gagner 1 fois : 2/10
 Perdre : 0/10
 */
+	$('#scorePlayer li:nth-child(1)').html('📓 Moyenne : ' + getNote()*2 + '/20');
+	var aRelu = false;
+	var aRevise = false;
+	var estSorti = false;
 
 	$('.buttonChoice').on('click', function (e) {
 		e.preventDefault();
@@ -46,6 +50,7 @@ Perdre : 0/10
 	});
 
 	function reviser(){
+		aRevise = true;
 		let probaChanceAugmentée;
 		switch(getTypeInt()){
 			case 1: probaChanceAugmentée = 0.9; 
@@ -68,6 +73,7 @@ Perdre : 0/10
 	}
 
 	function relire(){
+		aRelu = true;
 		let probaChanceAugmentée;
 		switch(getTypeInt()){
 			case 1: probaChanceAugmentée = 0.9; 
@@ -90,6 +96,7 @@ Perdre : 0/10
 	}
 
 	function soiree(){
+		estSorti = true;
 		let probaChanceAugmentée;
 		switch(getTypeInt()){
 			case 1: probaChanceAugmentée = 0.8; 
@@ -106,17 +113,34 @@ Perdre : 0/10
 		const random = Math.random();
 
 		if(random < probaChanceAugmentée){
+			if (aRevise){
 			setSkillScience(2);
-			alert("Tu as gagné 2 points de skill en science en plus grâce à cette action !");
+			alert("Bravo ! \nTu as refait tous les exercices, tu gagnes 2 points de skill en Science !");
+			} else if (aRelu){
+				setSkillScience(1);
+				alert("Bravo ! \nTu as bien relu le cours, tu gagnes 1 point de skill en Science");
+			} else {
+				setSkillScience(1);
+				alert("Ca alors ! \nOn ne sait pas comment, mais aller en soirée t'as fait gagner 1 point de skill en Science !\nSacré IMAC !");
+			}
 		}
 		else{
-			alert("Oups, ton choix n'a pas vraiment amélioré tes compétences !")
+			alert("Oups, ton choix n'a pas vraiment amélioré tes compétences !\n Il va falloir compter sur ce que tu sais déjà ! ")
 		}
 	}
 
 	function takeTest(){
-		setNote(getNoteSignal());
-		if (confirm("Tu as eu " + getNoteSignal()+"/10 au partiel de Signal !")) {
+		var noteSignal = getNoteSignal();
+		setNote(noteSignal);
+		if (noteSignal < 5){
+			var sentence = "Oups ! Tu n'as eu que "+noteSignal*2+"/20 au partiel de signal !"
+		} else if (noteSignal < 7) {
+			var sentence = "Tu as eu " + noteSignal * 2 + "/20 au partiel de signal ! Pas mal !"
+		} else {
+			var sentence = "Youhooou ! Tu as eu " + noteSignal * 2 + "/20 au partiel de signal ! Bravo !"
+		}
+
+		if (confirm(sentence)) {
 			window.location = 'page4.html';
 		  } else {
 			window.location = 'index.html';

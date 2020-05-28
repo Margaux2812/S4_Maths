@@ -15,7 +15,8 @@ window.type = {
 window.hasTurned = false;
 
 $(function () {
-
+	
+$('#scorePlayer li:nth-child(1)').html('📓 Moyenne : Non noté');
 var rouletteImg = document.getElementById('roulette');
 	rouletteImg.addEventListener('click', onClick, false);
 
@@ -151,7 +152,13 @@ var rouletteImg = document.getElementById('roulette');
 	************************************/
 
 	function updateDisplay(matiere){
-		if (confirm('Il semblerait que tu aies eu ' + getNote() + '/10 à ton partiel de ' + getMatiere(matiere))) {
+		if (getNote() < 5) {
+			var sentence = "Oups ! Tu n'as eu que " + getNote() * 2 + "/20 au partiel de " + getMatiere(matiere) + "!"
+		} else if (getNote() < 7) {
+			var sentence = "Tu as eu " + getNote() * 2 + "/20 au partiel de " + getMatiere(matiere) + "! Pas mal !"
+		} else {
+			var sentence = "Youhooou ! Tu as eu " + getNote() * 2 + "/20 au au partiel de " + getMatiere(matiere) + "! Bravo !"
+		}		if (confirm(sentence)) {
 			window.location = 'page3.html';
 		  } else {
 			window.location = 'index.html';

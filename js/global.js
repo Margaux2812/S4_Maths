@@ -39,7 +39,6 @@ ________________________________________
 
 	$('.dataPlayer h4').html(getName());
 	$('.dataPlayer h5').html('IMAC ' + getType());
-    $('#scorePlayer li:nth-child(1)').html('📓 Note : ' + getNote() + '/20');
 	$('#scorePlayer li:nth-child(2)').html('❤️ Love : ' + getLove() + '%');
     if(typeof getName() !== 'undefined'){
         $('#skills li:nth-child(1)').html('Sciences : '+ '⚫'.repeat(getSkillScience()) + '⚪'.repeat(5-getSkillScience()));
