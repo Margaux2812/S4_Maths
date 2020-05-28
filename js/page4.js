@@ -42,13 +42,16 @@ $(function () {
     }
 
     // player specs
-    var player = {
-        size: 50,
-        x: (canvas.width - 50) / 2,
-        y: canvas.height - 50,
-        src: "./img/basket.png"
-    };
+    var playerImg = new Image();
 
+        var player = {
+            size: 50,
+            x: (canvas.width - 50) / 2,
+            y: canvas.height - 50,
+            src: "./img/basket.png"
+        };
+
+       
     // specs for balls you want to collect
     var goodArc = {
         x: [],
@@ -119,11 +122,8 @@ $(function () {
     }
     // draw player to canvas
     function drawPlayer() {
-        contxt.beginPath();
-        contxt.rect(player.x, player.y, player.size, player.size);
-        contxt.fillStyle = player.color;
-        contxt.fill();
-        contxt.closePath();
+        playerImg.src = player.src;
+        contxt.drawImage(playerImg, player.x, player.y, player.size, player.size);
     }
 
     // moves objects in play
@@ -131,9 +131,13 @@ $(function () {
 
         if (lefty && player.x > 0) {
             player.x -= 7;
+            contxt.drawImage(playerImg, player.x, player.y, player.size, player.size);
+
         }
         if (righty && player.x + player.size < canvas.width) {
             player.x += 7;
+            contxt.drawImage(playerImg, player.x, player.y, player.size, player.size);
+
         }
         for (var i = 0; i < loveNum; i++) {
             goodArc.y[i] += goodArc.speed;
@@ -152,7 +156,6 @@ $(function () {
                     }
                     stock++;
                     // Cycles through goodArc's color array
-                    player.color = goodArc.color;
                     goodArc.state[i] = false;
                     if (stock >= 10) {
                         gamesOver();
@@ -173,7 +176,6 @@ $(function () {
                 if (love>=5){
                 love-=5;
                 }
-                player.color = badArc.color;
                 badArc.y[i] = 0;
                 if (stock >=10) {
                     gamesOver();
@@ -206,7 +208,6 @@ $(function () {
     //resets game, life, and love counters
     function play() {
         gameOver = false;
-        player.color = "green";
         love = 50;
         stock = 0;
         badArc.speed = 2;
