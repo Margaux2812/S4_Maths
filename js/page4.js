@@ -225,7 +225,7 @@ $(function () {
 
             //stock
             contxt.textAlign = "right";
-            contxt.fillText("Time: " + parseInt((Date.now() - startTime)/1000)+"s", 500, 25);
+            contxt.fillText("Time: " + parseInt(30-(Date.now() - startTime)/1000)+"s", 500, 25);
         }
         else if (gameOver && !played){
             contxt.fillStyle = "black";
@@ -240,31 +240,19 @@ $(function () {
             contxt.font = "20px Helvetica";
             contxt.fillText("Utilise tes flèches <-  -> pour bouger ", canvas.width / 2, 475); 
         } else {
+        
 
-            contxt.fillStyle = "black";
-            contxt.textAlign = "center";
-
-            contxt.font = "30px Helvetica";
-            contxt.fillText("Terminé !", canvas.width / 2, 175);
-
-
-            contxt.font = "25px Helvetica";
             if (love < 50) {
-                contxt.fillText("Tu es trop salé pour l'IMAC, ton score de love a baissé à " + love + "%.", canvas.width / 2, 300);
-                contxt.font = "20px Helvetica";
-                contxt.fillText("Conseil d'ami : Sois un peu moins grognon... ", canvas.width / 2, 375); 
+                window.alert("Terminé ! \n Tu es trop salé pour l'IMAC, ton score de love a baissé à " + love + "%.\n Conseil d'ami : Sois un peu moins... grognon.")
             
             } else if (love == 50) {
-                contxt.fillText("Ton score de love n'a pas bougé, tu restes à " + love + "%.", canvas.width / 2, 300);
-                contxt.font = "20px Helvetica";
-                contxt.fillText("Conseil d'ami : Essaie de faire des blagues, sur un malentendu ça peut faire rire quelqu'un. ", canvas.width / 2, 375); 
-            
-            } else {
-                contxt.fillText("Tu sais partager l'amour à l'IMAC ! Ton score de love est de " + love + "%.", canvas.width / 2, 300);
-                contxt.font = "20px Helvetica";
-                contxt.fillText("Conseil d'ami : Reste comme tu es, ça c'est IMAC ! ", canvas.width / 2, 375);
+                window.alert("Terminé ! \n Ton score de love n'a pas bougé, tu restes à " + love + "%.\n Conseil d'ami : Essaie de faire des blagues, sur un malentendu ça peut faire rire quelqu'un.")
 
+            } else {
+                window.alert("Terminé ! \n Tu sais partager l'amour à l'IMAC ! Ton score de love est de " + love + "%.\n Conseil d'ami : Reste comme tu es, ça c'est IMAC !")
             }
+
+            window.location = 'page5.html';
         }
         requestAnimationFrame(draw);
     }
@@ -272,12 +260,5 @@ $(function () {
 
 
     draw();
-
-
-    $('#buttonS3').on('click', function (e) {
-        e.preventDefault();
-        window.location = 'page5.html';
-    });
-
 
 });
