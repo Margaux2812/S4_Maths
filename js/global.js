@@ -37,7 +37,19 @@ ________________________________________
 ********* INIT HTML PLAYERDATA *********
 ****************************************/
 
-	$('.dataPlayer h4').html(getName());
+var srcChibi;
+if (getType() == "Art"){
+    srcChibi ="./img/IMAC_Arts/mini.png";
+} else if (getType() == "Mixte"){
+    srcChibi = "./img/IMAC_Mixte_Mini.png";
+} else if (getType() == "Survie") {
+    srcChibi = "./img/IMAC_Bullshit_Mini.png";
+} else {
+    srcChibi = "./img/IMAC_Scientist_Mini.png";
+}
+
+    $('.dataPlayer h4').html(getName());
+    $('.dataPlayer img').href(srcChibi);
 	$('.dataPlayer h5').html('IMAC ' + getType());
 	$('#scorePlayer li:nth-child(2)').html('❤️ Love : ' + getLove() + '%');
     if(typeof getName() !== 'undefined'){
