@@ -6,9 +6,6 @@ $(function () {
     var righty = false;
     var gameOver = true;
     var love;
-    var stock;
-    var track;
-    var badTrack;
     var played = false;
     var startTime;
     setLove(50);
@@ -82,15 +79,15 @@ $(function () {
 
     // adds value to x property of goodArc
     function drawNew() {
-        var myRandom = Math.random() // RANDOM HERE
+        var myRandom = uniform(0.001, 1.001) // RANDOM HERE
         if (myRandom < .03) { 
-            goodArc.x.push(Math.random() * canvas.width); //RANDOM HERE
+            goodArc.x.push(uniform(0.001, 1.001) * canvas.width); //RANDOM HERE
             goodArc.y.push(0);
             goodArc.state.push(true);
 
         } else if (myRandom < .10){
 
-                badArc.x.push(Math.random() * canvas.width);
+            badArc.x.push(uniform(0.001, 1.001) * canvas.width);
                 badArc.y.push(0);
             }
         
@@ -152,7 +149,6 @@ $(function () {
                     if (love <=95){
                     love+=5;
                     }
-                    stock++;
                     // Cycles through goodArc's color array
                     goodArc.state[i] = false;
                    
@@ -163,12 +159,10 @@ $(function () {
                 goodArc.x.shift();
                 goodArc.y.shift();
                 goodArc.state.shift();
-                track++;
             }
         }
         for (var i = 0; i < saltNum; i++) {
             if (player.x < badArc.x[i] + rad && player.x + 30 + rad > badArc.x[i] && player.y < badArc.y[i] + rad && player.y + 30 > badArc.y[i]) {
-                stock++;
                 if (love>=5){
                 love-=5;
                 }
@@ -178,7 +172,6 @@ $(function () {
             if (badArc.y[i] + rad > canvas.height) {
                 badArc.x.shift();
                 badArc.y.shift();
-                badTrack++;
             }
         }
 
@@ -205,7 +198,6 @@ $(function () {
     function play() {
         gameOver = false;
         love = 50;
-        stock = 0;
         badArc.speed = 2;
         goodArc.speed = 2;
         startTime = Date.now();
@@ -224,7 +216,7 @@ $(function () {
             contxt.textAlign = "left";
             contxt.fillText("Love: " + love +"%", 10, 25);
 
-            //stock
+            //time
             contxt.textAlign = "right";
             contxt.fillText("Time: " + parseInt(30-(Date.now() - startTime)/1000)+"s", 500, 25);
         }

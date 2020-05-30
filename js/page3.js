@@ -1,16 +1,5 @@
 $(function () {
 
-/*
-Scénario : 
-
-1. Choix entre les 3 boutons
-2. En fonction du choix et du type d'imac -> Augmente les stats en science et/ou survie ( random loi : bernouilli)
-3. En fonction des nouveaux stats : donne une note (loi proportionnelle à la survie et aux sciences, voir drive)
-4. Alert qui affiche le résultat, la nouvelle note, et un bouton : onclick -> S3
-
-
-Idée : Choix d'aller au bar --> Augmente le love ? 
-*/
 
 /*IMAC Science : Si Revise ou relis : probabilité de réussite 90%, si en soirée 80%
 IMAC Art : si revise ou relis : 40% si soirée 30%
@@ -53,70 +42,70 @@ Perdre : 0/10
 		aRevise = true;
 		let probaChanceAugmentée;
 		switch(getTypeInt()){
-			case 1: probaChanceAugmentée = 0.9; 
+			case 1: probaChanceAugmentée = 0.9; // Science
 			break;
-			case 2: probaChanceAugmentée = 0.4;
+			case 2: probaChanceAugmentée = 0.4; // Prog
 			break;
-			case 3: probaChanceAugmentée = 0.4;
+			case 3: probaChanceAugmentée = 0.4; // Art 
 			break;
-			case 4: probaChanceAugmentée = 0.7;
+			case 4: probaChanceAugmentée = 0.7; // Comm
 			break;
 			default: break;
 		}
 
-		const random = Math.random();
+		const random = uniform(0.001, 1.001);
 
-		if(random < probaChanceAugmentée){
-			setSkillScience(1);
-			alert("Tu as gagné 1 point de skill en science en plus grâce à cette action !");
-		}
+		DoSkillAugmente(random, probaChanceAugmentée);
+
 	}
 
 	function relire(){
 		aRelu = true;
 		let probaChanceAugmentée;
 		switch(getTypeInt()){
-			case 1: probaChanceAugmentée = 0.9; 
+			case 1: probaChanceAugmentée = 0.9; // Science
 			break;
-			case 2: probaChanceAugmentée = 0.4;
+			case 2: probaChanceAugmentée = 0.4; // Prog
 			break;
-			case 3: probaChanceAugmentée = 0.55;
+			case 3: probaChanceAugmentée = 0.55; // Art
 			break;
-			case 4: probaChanceAugmentée = 0.6;
+			case 4: probaChanceAugmentée = 0.6; // Comm
 			break;
 			default: break;
 		}
 
-		const random = Math.random();
+		const random = uniform(0.001, 1.001)
 
-		if(random < probaChanceAugmentée){
-			setSkillScience(1);
-			alert("Tu as gagné 1 point de skill en science en plus grâce à cette action !");
-		}
+		DoSkillAugmente(random, probaChanceAugmentée);
+
 	}
 
 	function soiree(){
 		estSorti = true;
 		let probaChanceAugmentée;
 		switch(getTypeInt()){
-			case 1: probaChanceAugmentée = 0.8; 
+			case 1: probaChanceAugmentée = 0.8; // Science
 			break;
-			case 2: probaChanceAugmentée = 0.3;
+			case 2: probaChanceAugmentée = 0.3; // Prog
 			break;
-			case 3: probaChanceAugmentée = 0.3;
+			case 3: probaChanceAugmentée = 0.3; // Art
 			break;
-			case 4: probaChanceAugmentée = 0.45;
+			case 4: probaChanceAugmentée = 0.45; // Comm
 			break;
 			default: break;
 		}
 
-		const random = Math.random();
+		const random = uniform(0.001, 1.001)
+		DoSkillAugmente(random, probaChanceAugmentée);
+		
+	}
 
-		if(random < probaChanceAugmentée){
-			if (aRevise){
-			setSkillScience(2);
-			alert("Bravo ! \nTu as refait tous les exercices, tu gagnes 2 points de skill en Science !");
-			} else if (aRelu){
+	function DoSkillAugmente(random, probaChanceAugmentée){
+		if (random < probaChanceAugmentée) {
+			if (aRevise) {
+				setSkillScience(2);
+				alert("Bravo ! \nTu as refait tous les exercices, tu gagnes 2 points de skill en Science !");
+			} else if (aRelu) {
 				setSkillScience(1);
 				alert("Bravo ! \nTu as bien relu le cours, tu gagnes 1 point de skill en Science");
 			} else {
@@ -124,7 +113,7 @@ Perdre : 0/10
 				alert("Ca alors ! \nOn ne sait pas comment, mais aller en soirée t'as fait gagner 1 point de skill en Science !\nSacré IMAC !");
 			}
 		}
-		else{
+		else {
 			alert("Oups, ton choix n'a pas vraiment amélioré tes compétences !\n Il va falloir compter sur ce que tu sais déjà ! ")
 		}
 	}
@@ -146,8 +135,8 @@ Perdre : 0/10
 	}
 
 	function getNoteSignal(){
-		const data = bernouilli(5, getSkillScience()/5);
-		const random = Math.random();
+		const data = bernoulliAndbinom(5, getSkillScience()/5);
+		const random = uniform(0.001, 1.001) 
 		if(random < data[1]){
 			return 0;
 		}else if (random < data[2]){

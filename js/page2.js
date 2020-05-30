@@ -36,7 +36,7 @@ var rouletteImg = document.getElementById('roulette');
 			window.hasTurned = true;
 		    this.removeAttribute('style');
 		    
-		    const deg = mathFunction();
+			const deg = mathSelectPartiel();
 		    
 		    let css = '-webkit-transform: rotate(' + deg + 'deg);';
 		    
@@ -48,8 +48,8 @@ var rouletteImg = document.getElementById('roulette');
 	    }
 	}
 
-	function mathFunction(){
-		return 500 + Math.round(Math.random() * 500); // à déplacer dans maths.js
+	function mathSelectPartiel(){ // Description -> Loi uniforme générant entre 500 et 1000
+		return Math.round(uniform(500,1000));
 	}
 
 	function getMatiereFromDeg(deg){

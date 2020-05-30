@@ -24,7 +24,7 @@ $(function () {
     
     $("#validShot").click(function () {
         if (gaussBool(6, nbShot, 5, 8) == true) {
-            var bonus = Math.random().toPrecision(2) // Entre 0 et 1 points RANDOM HERE
+            var bonus = uniform(0.01, 2.01).toPrecision(3) // Entre 0 et 1 points RANDOM HERE
             setNote(bonus);
             alert("Bravo !\n Tu as bien discuté avec M.Biri, il te trouve très sympa, alors il t'a donné " + bonus + " points bonus !\n Ta nouvelle moyenne est de " + getNote() + "/20 !");
         } else if (nbShot < 6) {

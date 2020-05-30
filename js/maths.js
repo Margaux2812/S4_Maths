@@ -10,7 +10,6 @@ function gauss(center, x){
 }
 
 function gaussBool(center, x, a,b){
-	var sigma = 4;
 	var val =(20 * Math.sqrt(2 * Math.PI) * Math.exp(- Math.pow(x - center, 2) / 16)) / (2 * Math.sqrt(2 * Math.PI));
 	return (val >a && val<b);
 }
@@ -22,13 +21,16 @@ function algoRejet(centerGauss){
 	while(u > (gauss(centerGauss, y)/10)){
 		y = Math.random()*10;
 	}
-
 	/*On aura plus de chance de tomber sous la courbe aux alentours de la valeur donnée*/
 	
 	return y;
 }
 
-function bernouilli(n, p){
+function uniform(min,max){
+	return Math.random() * (max - min) + min;
+}
+
+function bernoulliAndbinom(n, p){
 	let data = new Array();
 	let lastChance= 0;
 	for(let i=1; i<6; i++){
@@ -53,4 +55,24 @@ function factoriel(n){
 			return n * factoriel (n-1);
 		}
 	}
+}
+
+
+function geometrique(n,p,q){
+	// Probabilité d'obtenir dans une succession de k épreuves de Bernoulli, k – 1 échecs suivis d'un succès. 
+	// Les épreuves sont indépendantes, cette probabilité est de qk – 1p.
+	return Math.pow(q,  n-1)*p;
+}
+
+function Poisson(n,m){
+	// Probabilité d'avoir n évènements distribués selon une loi de Poisson de paramètre m
+	return Math.pow(exp(1), -m)*(Math.pow(m,n)/factoriel(n));
+	
+}
+
+function logarithme(p,k){
+	// Loi de probabilité discrète, dérivée du développement de Taylor 
+	result = Math.pow(p,k)/k;
+	result = result*(-1/Math.log(1-p));
+
 }
