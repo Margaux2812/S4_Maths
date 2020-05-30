@@ -44,6 +44,6 @@ $(function () {
         window.location = 'page6.html';
 
     } else {
-        $('h3').html("Ouah c'est le jour du gala \n! Monsieur Biri aimerait bien boire un coup !\n Sers-le, peut-être qu\'il te révèlera les secrets de l\IMAC !");
+        $('h3').html("Ouah c'est le jour du gala \n! Monsieur Biri aimerait bien boire un coup !\n Sers-le, peut-être qu\'il te révèlera les secrets de l\'IMAC !");
         }
 });
