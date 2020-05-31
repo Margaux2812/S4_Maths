@@ -29,7 +29,7 @@
   font-style: normal;
 }
 
-html, body {margin: 0; height: 100%; overflow: hidden}
+html, body {margin: 0; height: 100%; overflow: hidden; font-family: "neontubes";}
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -42,7 +42,6 @@ header{
 }
 
 h1{
-	font-family: "neontubes";
 	text-align: center;
     font-size: 2em;
     padding: 5px 0;
@@ -52,7 +51,6 @@ h1{
 }
 
 h2{
-	font-family: "neontubes";
 	color: #d4eaff;
   	text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
 	text-align: center;
@@ -64,7 +62,6 @@ h2{
 section{
 	padding: 10px;
 	height: 80%;
-	font-family: "neontubes";
 	color: #f7ccff;
   	text-shadow: 0 0 0 transparent, 0 0 10px #720185, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #720185, 0 0 100px #720185, 0 0 200px #720185, 0 0 300px #720185, 0 0 500px #720185;
 	border-radius: 5px;
@@ -85,12 +82,6 @@ section h3{
 	height: 80%;
 }
 
-#canvas {
-			background: #e1e1ea;
-			display: block;
-			margin: auto;
-		}	
-
 /*LEFT*/
 
 .left, .right{
@@ -99,23 +90,6 @@ section h3{
 
 .right{
 	padding: 0 20px;
-}
-
-#carrouselShot{
-	display: flex;
-	flex-direction: row;
-	height: 20%;
-	align-items: stretch;
-}
-
-#nbShot{
-	width : 50px;
-	height: 50px;
-	text-align: right;
-	font-size: 30px;
-	background-color: white;
-	color: black;
-
 }
 #carrousel{
 	display: flex;
@@ -134,7 +108,7 @@ section h3{
     height: 100%;
 }
 
-#carrousel button, #carrouselShot button{
+#carrousel button, #carrouselShot button, #nbShot{
 	width: 25%;
     border: 0;
     border-radius: 2px;
@@ -145,11 +119,11 @@ section h3{
     background-color: transparent;
 }
 
-#left{
+#leftBtn{
     background-image: url(img/arrow2.png);
 }
 
-#right{
+#rightBtn{
     background-image: url(img/arrow.png);
 }
 
@@ -158,17 +132,106 @@ section h3{
 	cursor: pointer;
 }
 
+/*Right*/
+#validIMAC, .buttonChoice{
+	background-color: transparent;
+    margin: 20px 0 20px 20px;
+    border: 1px solid #ffd9e2;
+    padding: 10px 30px;
+    border-radius: 3px;
+    font-family: "neontubes";
+    color: white;
+    text-shadow: 0 0 0 transparent, 0 0 10px #cccccc, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #cccccc, 0 0 100px #cccccc, 0 0 200px #cccccc, 0 0 300px #cccccc, 0 0 500px #cccccc;
+}
+
+#validIMAC:hover, .buttonChoice:hover{
+	box-shadow: 0 0 0 transparent, 0 0 2px #ff003c, 0 0 5px rgba(255, 0, 60, 0.5), 0 0 10px #ff003c, 0 0 25px #ff003c, 0 0 50px #ff003c, 0 0 75px #ff003c, 0 0 125px #ff003c, 0 0 250px #ff003c;
+    cursor: pointer;
+}
+
+/*PAGE 2*/
+.left figure{
+	margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
 #roulette {
-	position : absolute;
-    /* height: 100%; */
-	-webkit-transition: -webkit-transform 2s ease-out;
-	z-index:0;
+	    position: relative;
+    height: 100%;
+    -webkit-transition: -webkit-transform 2s ease-out;
+    z-index: 0;
+    margin: auto;
+    display: block;
 }
 
 #rouletteFleche{
-	position: absolute;
-	z-index:1;
+	margin-left: 22.5%;
+    position: absolute;
+    z-index: 1;
+    display: block;
 }
+
+/*PAGE 3*/
+
+.buttonChoice{
+  margin: 20px auto;
+  display: inline;
+}
+
+#leftSide{
+  text-align: center;
+}
+
+/*PAGE 4*/
+#canvas {
+      background: #e1e1ea;
+      display: block;
+      margin: auto;
+      margin: 20px;
+    height: 100%;
+    } 
+
+/*PAGE 5*/
+
+.leftSide5{
+  background-image: url('img/Pub.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#leftShot{
+    background-image: url(img/moins.png);
+}
+
+#rightShot{
+    background-image: url(img/plus.png);
+}
+
+#carrouselShot button, #nbShot{
+  height: 100%;
+  display: inline-block;
+      width: 50px;
+}
+
+#carrouselShot{
+  display: flex;
+  flex-direction: row;
+  height: 20%;
+  text-align: center;
+}
+
+#nbShot{
+  text-align: right;
+  font-size: 30px;
+  background-color: transparent;
+  color: black;
+    color: #d4eaff;
+    text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
+  font-family: "neontubes";
+}
+
 
 #content>ul{
 	float: right;
