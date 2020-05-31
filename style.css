@@ -138,14 +138,14 @@ section h3{
 
 #leftBtn{
     background-image: url(img/arrow2.png);
-    width : 75%!important;    
-    height : 40%;
+    width : 60%!important;    
+    height : 35%;
 }
 
 #rightBtn{
     background-image: url(img/arrow.png);
-    width : 75%!important;
-    height : 40%;
+    width : 60%!important;
+    height : 35%;
 }
 
 #carrousel button:hover, #carrouselShot button:hover #roulette:hover{

@@ -30,6 +30,21 @@ function uniform(min,max){
 	return Math.random() * (max - min) + min;
 }
 
+function uniformPartiel(){
+	//Discrète, retourne le type de partiel à passer (non-numérique)
+	
+	partiel = Math.round(Math.random() * (4 - 1) + 1);
+	if (partiel == 1) { // HDA
+		return "HDA"
+	} else if (partiel == 2) { //TECH
+		return "TECH"
+	} else if (partiel == 3) { //SIGNAL
+		return "SIGNAL"
+	} else { //PROG
+		return "PROG"
+	}
+}
+
 function bernoulliAndbinom(n, p){
 	let data = new Array();
 	let lastChance= 0;

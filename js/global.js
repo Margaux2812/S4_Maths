@@ -47,7 +47,6 @@ if (getType() == "Artistique") {
     srcChibi = "img/IMAC_Scientist_Mini.png";
 }
 
-console.log(getType());
 
     $('.dataPlayer h4').html(getName());
     $('.dataPlayer img').attr("src",srcChibi);
@@ -186,15 +185,13 @@ function getSkillSurvie() { // Doit retourner un chiffre
 
 
 function setNote(bonus) {
-    console.log(bonus);
-    console.log(getNote());
+
     if ((parseFloat(bonus) + parseFloat(getNote())) > 20) {
         sessionStorage.note = 20.00;
     }
     else { 
         sessionStorage.note = (parseFloat(getNote()) + parseFloat(bonus)).toPrecision(4);
     }
-    console.log(getNote())
 }
 
 function setLove(value) {
