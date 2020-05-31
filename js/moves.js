@@ -1,4 +1,5 @@
 $(function() {
+	sessionStorage.clear();
 	var perso=40;
 
 	$("#rightBtn").click(function() {
