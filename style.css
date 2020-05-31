@@ -38,7 +38,8 @@ body {
 }
 
 header{
-	height: 20%;
+  height: 20%;
+  margin-top : 10px;
 }
 
 h1{
@@ -82,6 +83,20 @@ section h3{
 	height: 80%;
 }
 
+.dataPlayer{
+  max-width : 350px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding : 50px 20px;
+  margin-top : -50px;
+}
+
+.myPlayer{
+   justify-content: center;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+
 /*LEFT*/
 
 .left, .right{
@@ -89,12 +104,14 @@ section h3{
 }
 
 .right{
-	padding: 0 20px;
+  padding: 0 20px;
+  margin-top : 70px;
 }
 #carrousel{
 	display: flex;
 	flex-direction: row;
-	height: 80%;
+  height: 80%;
+  align-items : center;
 }
 
 #carrousel figure{
@@ -121,13 +138,17 @@ section h3{
 
 #leftBtn{
     background-image: url(img/arrow2.png);
+    width : 75%!important;    
+    height : 40%;
 }
 
 #rightBtn{
     background-image: url(img/arrow.png);
+    width : 75%!important;
+    height : 40%;
 }
 
-#carrousel button:hover, #carrouselShot button:hover{
+#carrousel button:hover, #carrouselShot button:hover #roulette:hover{
 	cursor: pointer;
 }
 
@@ -144,7 +165,7 @@ section h3{
 }
 
 #validIMAC:hover, .buttonChoice:hover, #validShot:hover, #playAgain:hover{
-	box-shadow: 0 0 0 transparent, 0 0 2px #ff003c, 0 0 5px rgba(255, 0, 60, 0.5), 0 0 10px #ff003c, 0 0 25px #ff003c, 0 0 50px #ff003c, 0 0 75px #ff003c, 0 0 125px #ff003c, 0 0 250px #ff003c;
+	box-shadow: 0 0 0 transparent, 0 0 2px #2695ff, 0 0 5px rgba(38, 149, 255, 0.5), 0 0 10px #2695ff, 0 0 25px #2695ff, 0 0 50px #2695ff, 0 0 75px #2695ff, 0 0 125px #2695ff, 0 0 250px #2695ff;
     cursor: pointer;
 }
 
@@ -174,19 +195,21 @@ section h3{
 /*PAGE 3*/
 
 .buttonChoice{
-  margin: 20px auto;
+  margin: 300px auto;
   display: inline;
 }
 
 #leftSide{
   text-align: center;
+  width : 120%;
 }
 
 /*PAGE 4*/
 #canvas {
-      background: #e1e1ea;
+      background: #16161f;
       display: block;
       margin: auto;
+      margin-top : 0px!important;
       margin: 20px;
     height: 100%;
     } 
@@ -194,6 +217,7 @@ section h3{
 /*PAGE 5*/
 
 .leftSide5{
+  margin-top : 5%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -202,7 +226,7 @@ section h3{
 
 .leftSide5 h3{
   height: auto;
-}
+  margin-top : -10%}
 
 #leftShot{
     background-image: url(img/moins.png);
@@ -224,6 +248,7 @@ section h3{
   height: 20%;
   text-align: center;
   justify-content: center;
+  margin-top : 7%;
 }
 
 #nbShot{

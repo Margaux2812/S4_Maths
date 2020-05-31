@@ -1,7 +1,7 @@
 $(function () {
     $('#scorePlayer li:nth-child(1)').html('📓 Moyenne : ' + getNote() + '/20');
 
-
+    $('.myPlayer img').attr('src', srcChibi);
     $('#titleh3').html('C\'est l\'heure de vérité !' );
     $('#content6 h2').html('Tu as eu une moyenne de '+getNote()+'/20 !');
 

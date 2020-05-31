@@ -37,17 +37,17 @@ ________________________________________
 ********* INIT HTML PLAYERDATA *********
 ****************************************/
 var srcChibi;
-if (getType() == "Art") {
-    srcChibi = "img/IMAC_Arts/mini.png";
+if (getType() == "Artistique") {
+    srcChibi = "img/IMAC_Arts_Mini.png";
 } else if (getType() == "Mixte") {
     srcChibi = "img/IMAC_Mixte_Mini.png";
-} else if (getType() == "Survie") {
+} else if (getType() == "Survivant") {
     srcChibi = "img/IMAC_Bullshit_Mini.png";
 } else {
     srcChibi = "img/IMAC_Scientist_Mini.png";
 }
 
-
+console.log(getType());
 
     $('.dataPlayer h4').html(getName());
     $('.dataPlayer img').attr("src",srcChibi);
@@ -122,8 +122,8 @@ function getLove() { // Doit retourner un chiffre
 }
 
 function getType(){
-    if (sessionStorage.typeIMAC == "Science"){
-        return "Scientifique";
+    if (sessionStorage.typeIMAC == "Mixte"){
+        return "Mixte";
     }
     else if (sessionStorage.typeIMAC == "Art") {
         return "Artistique";
@@ -131,7 +131,7 @@ function getType(){
     else if (sessionStorage.typeIMAC == "Survie") {
         return "Survivant";
     }
-    else return "Mixte"
+    else return "Science"
 
 }
 
@@ -186,17 +186,18 @@ function getSkillSurvie() { // Doit retourner un chiffre
 
 
 function setNote(bonus) {
-
+    console.log(bonus);
+    console.log(getNote());
     if ((parseFloat(bonus) + parseFloat(getNote())) > 20) {
-        sessionStorage.note = 20;
+        sessionStorage.note = 20.00;
     }
     else { 
-        sessionStorage.note = parseFloat(getNote()) + parseFloat(bonus);
+        sessionStorage.note = (parseFloat(getNote()) + parseFloat(bonus)).toPrecision(4);
     }
-
+    console.log(getNote())
 }
 
-function setLove(value) { // Can be negative
+function setLove(value) {
     if (value > 100) {
         sessionStorage.love = 100;
     }

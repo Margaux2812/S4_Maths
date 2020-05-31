@@ -211,7 +211,7 @@ $(function () {
             playUpdate();
             drawNew();
             //love
-            contxt.fillStyle = "black";
+            contxt.fillStyle = "white";
             contxt.font = "20px Helvetica";
             contxt.textAlign = "left";
             contxt.fillText("Love: " + love +"%", 10, 25);
@@ -221,7 +221,7 @@ $(function () {
             contxt.fillText("Time: " + parseInt(30-(Date.now() - startTime)/1000)+"s", 500, 25);
         }
         else if (gameOver && !played){
-            contxt.fillStyle = "black";
+            contxt.fillStyle = "white";
             contxt.textAlign = "center";
 
             contxt.font = "30px Helvetica";

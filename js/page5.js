@@ -26,7 +26,7 @@ $(function () {
         if (gaussBool(6, nbShot, 5, 8) == true) {
             var bonus = uniform(0.01, 2.01).toPrecision(3) // Entre 0 et 1 points RANDOM HERE
             setNote(bonus);
-            alert("Bravo !\n Tu as bien discuté avec M.Biri, il te trouve très sympa, alors il t'a donné " + bonus + " points bonus !\n Ta nouvelle moyenne est de " + getNote() + "/20 !");
+            alert("Bravo !\n Tu as bien discuté avec M.Biri, il te trouve très sympa, alors il t'a donné " + bonus.toPrecision(3) + " points bonus !\n Ta nouvelle moyenne est de " + getNote() + "/20 !");
         } else if (nbShot < 6) {
             alert("Mmmh...\n M.Biri t'a raconté plein de choses intéressantes !\n Mais il ne peut pas t'aider pour ta moyenne générale ! Tu aurais sûrement dû lui offrir un verre ou deux de plus !");
         }
