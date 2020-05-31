@@ -1,12 +1,12 @@
 $(function() {
 	var perso=40;
 
-	$("#right").click(function() {
+	$("#rightBtn").click(function() {
 		perso++;
 		changeText();
 	});
 
-	$("#left").click(function() {
+	$("#leftBtn").click(function() {
 		perso--;
 		changeText();
 	});
