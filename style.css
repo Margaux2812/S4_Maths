@@ -108,7 +108,7 @@ section h3{
     height: 100%;
 }
 
-#carrousel button, #carrouselShot button, #nbShot{
+#carrousel button, #carrouselShot button{
 	width: 25%;
     border: 0;
     border-radius: 2px;
@@ -128,12 +128,11 @@ section h3{
 }
 
 #carrousel button:hover, #carrouselShot button:hover{
-	background-position: right center;
 	cursor: pointer;
 }
 
 /*Right*/
-#validIMAC, .buttonChoice{
+#validIMAC, .buttonChoice, #validShot, #playAgain{
 	background-color: transparent;
     margin: 20px 0 20px 20px;
     border: 1px solid #ffd9e2;
@@ -144,7 +143,7 @@ section h3{
     text-shadow: 0 0 0 transparent, 0 0 10px #cccccc, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #cccccc, 0 0 100px #cccccc, 0 0 200px #cccccc, 0 0 300px #cccccc, 0 0 500px #cccccc;
 }
 
-#validIMAC:hover, .buttonChoice:hover{
+#validIMAC:hover, .buttonChoice:hover, #validShot:hover, #playAgain:hover{
 	box-shadow: 0 0 0 transparent, 0 0 2px #ff003c, 0 0 5px rgba(255, 0, 60, 0.5), 0 0 10px #ff003c, 0 0 25px #ff003c, 0 0 50px #ff003c, 0 0 75px #ff003c, 0 0 125px #ff003c, 0 0 250px #ff003c;
     cursor: pointer;
 }
@@ -195,10 +194,14 @@ section h3{
 /*PAGE 5*/
 
 .leftSide5{
-  background-image: url('img/Pub.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/Pub.jpg);
+}
+
+.leftSide5 h3{
+  height: auto;
 }
 
 #leftShot{
@@ -220,16 +223,45 @@ section h3{
   flex-direction: row;
   height: 20%;
   text-align: center;
+  justify-content: center;
 }
 
 #nbShot{
+  border: 0;
   text-align: right;
   font-size: 30px;
   background-color: transparent;
-  color: black;
-    color: #d4eaff;
-    text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
+  color: #d4eaff;
+  text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
   font-family: "neontubes";
+}
+
+#validShot{
+  margin: 20px auto;
+    display: block;
+}
+
+/*Page 6*/
+
+#content6{
+      display: flex;
+    height: 80%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#content6>h2{
+  font-size: 2em;
+}
+
+#content6>h3{
+  font-size: 1em;
+  height: auto;
+}
+
+#playAgain{
+  width: 20%;
+    margin: 20px auto;
 }
 
 
