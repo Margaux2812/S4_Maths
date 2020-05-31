@@ -21,11 +21,20 @@
   src: url(fonts/BebasNeue-Regular.otf);
 }
 
+@font-face {
+  font-family: 'neontubes';
+  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot");
+  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix") format("embedded-opentype"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2") format("woff2"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff") format("woff"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body {margin: 0; height: 100%; overflow: hidden}
 
 body {
-	background-color: #FAACA8;
-	background-image: linear-gradient(19deg, #FAACA8 0%, #DDD6F3 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #030c1c;
 }
 
 header{
@@ -33,30 +42,38 @@ header{
 }
 
 h1{
-	font-family: bebas;
+	font-family: "neontubes";
 	text-align: center;
-    font-size: 70px;
+    font-size: 2em;
     padding: 5px 0;
     margin: 0;
+    color: #ffd9e2;
+	text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;  
 }
 
 h2{
-	font-family: montserratN;
+	font-family: "neontubes";
+	color: #d4eaff;
+  	text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
 	text-align: center;
     margin: 0;
     padding: 5px 0;
+    font-size: 1em;
 }
 
 section{
 	padding: 10px;
 	height: 80%;
-	font-family: montserratL;
+	font-family: "neontubes";
+	color: #f7ccff;
+  	text-shadow: 0 0 0 transparent, 0 0 10px #720185, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #720185, 0 0 100px #720185, 0 0 200px #720185, 0 0 300px #720185, 0 0 500px #720185;
 	border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.7);
     margin: 0 10px;
 }
 
 section h3{
+	color: #f7ccff;
+  	text-shadow: 0 0 0 transparent, 0 0 10px #720185, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #720185, 0 0 100px #720185, 0 0 200px #720185, 0 0 300px #720185, 0 0 500px #720185;
 	margin: 0;
 	height: 5%;
 	padding: 10px 0;
@@ -72,9 +89,7 @@ section h3{
 			background: #e1e1ea;
 			display: block;
 			margin: auto;
-		}
-
-		
+		}	
 
 /*LEFT*/
 
@@ -109,7 +124,7 @@ section h3{
 }
 
 #carrousel figure{
-	width: 90%;
+	width: 50%;
 	margin: 0;
 	text-align: center;
 }
@@ -120,11 +135,22 @@ section h3{
 }
 
 #carrousel button, #carrouselShot button{
-	width: 5%;
-	background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC 51%, #02AAB0 100%);
-	border: 0;
-	border-radius: 2px;
-	margin : 5px;
+	width: 25%;
+    border: 0;
+    border-radius: 2px;
+    margin: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+}
+
+#left{
+    background-image: url(img/arrow2.png);
+}
+
+#right{
+    background-image: url(img/arrow.png);
 }
 
 #carrousel button:hover, #carrouselShot button:hover{
