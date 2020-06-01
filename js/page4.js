@@ -192,6 +192,18 @@ $(function () {
         setLove(love);
         $('#scorePlayer li:nth-child(2)').html('❤️Love : ' + getLove() + '%');
 
+        if (love < 50) {
+                alert("Terminé ! \n Tu es trop salé pour l'IMAC, ton score de love a baissé à " + love + "%.\n Conseil d'ami : Sois un peu moins... grognon.")
+            
+            } else if (love == 50) {
+                alert("Terminé ! \n Ton score de love n'a pas bougé, tu restes à " + love + "%.\n Conseil d'ami : Essaie de faire des blagues, sur un malentendu ça peut faire rire quelqu'un.")
+
+            } else {
+                alert("Terminé ! \n Tu sais partager l'amour à l'IMAC ! Ton score de love est de " + love + "%.\n Conseil d'ami : Reste comme tu es, ça c'est IMAC !")
+            }
+
+            window.location = 'page5.html';
+
     }
 
     //resets game, life, and love counters
@@ -232,20 +244,6 @@ $(function () {
 
             contxt.font = "20px Helvetica";
             contxt.fillText("Utilise tes flèches <-  -> pour bouger ", canvas.width / 2, 475); 
-        } else {
-        
-
-            if (love < 50) {
-                alert("Terminé ! \n Tu es trop salé pour l'IMAC, ton score de love a baissé à " + love + "%.\n Conseil d'ami : Sois un peu moins... grognon.")
-            
-            } else if (love == 50) {
-                alert("Terminé ! \n Ton score de love n'a pas bougé, tu restes à " + love + "%.\n Conseil d'ami : Essaie de faire des blagues, sur un malentendu ça peut faire rire quelqu'un.")
-
-            } else {
-                alert("Terminé ! \n Tu sais partager l'amour à l'IMAC ! Ton score de love est de " + love + "%.\n Conseil d'ami : Reste comme tu es, ça c'est IMAC !")
-            }
-
-            window.location = 'page5.html';
         }
         requestAnimationFrame(draw);
     }
