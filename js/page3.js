@@ -130,7 +130,7 @@ Perdre : 0/10
 		}
 
 		alert(sentence); 
-			//window.location = 'page4.html';
+		window.location = 'page4.html';
 		  
 	}
 
