@@ -23,13 +23,13 @@ Perdre : 0/10
 	$('.buttonChoice').on('click', function (e) {
 		e.preventDefault();
 		switch($(this).index()){
-			case 1: //Reviser
+			case 2: //Reviser
 			reviser();
 			break;
-			case 2: //Relire la veille
+			case 3: //Relire la veille
 			relire();
 			break;
-			case 3 : //Aller en soirée
+			case 4 : //Aller en soirée
 			soiree();
 			break;
 			default: break;
@@ -130,7 +130,7 @@ Perdre : 0/10
 		}
 
 		alert(sentence); 
-			window.location = 'page4.html';
+			//window.location = 'page4.html';
 		  
 	}
 
